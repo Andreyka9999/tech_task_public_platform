@@ -140,8 +140,10 @@ Vienkāršākais veids — divi termināli:
 ## 7. Bieži sastopamas problēmas un to risinājumi:
 - **The route api/v1//auth/login could not be found.**
     **Environment.apiUrl nedrīkst beigties ar /. Tam jābūt: http://127.0.0.1:8000/api/v1**
-
-- 
+- **CORS kļūda DevTools**
+     - Pārbaudiet, vai API ir palaists, APP_URL ir pareizs, config/cors.php ir atļauts http://localhost:4200.
+     - Pārstartējiet  php artisan serve.
+ 
 
 
 
