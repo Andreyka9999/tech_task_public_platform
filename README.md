@@ -105,6 +105,26 @@ Frontend palaišana:
 **Lietotne atvērsies http://localhost:4200**
 
 
+## 5. Vienlaicīga Frontend un Backend palaišana:
+Vienkāršākais veids — divi termināli:
+- Termināls 1 → cd social-platform-backend && php artisan serve
+- Termināls 2 → cd social-platform-frontend && npm
+
+
+## 6. Kā lietot (prasību pārbaude):
+- Atveriet http://localhost:4200
+- Pārejiet uz Register un izveidojiet lietotāju. Pēc reģistrācijas tiks saglabāts tokens, un visi aizsargātie ekrāni kļūs pieejami.
+- Feed (/)
+- - Redzams kopējais ziņu plūsmā, komentāru skaitītājs.
+
+
+
+
+
+
+
+
+
 
 
 
