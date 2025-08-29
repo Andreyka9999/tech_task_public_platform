@@ -186,6 +186,11 @@ Parasti tiek izvietots kā parasts Laravel API (PHP-FPM + Nginx/Apache). Neaizmi
 - Tailwind visam lietotāja interfeisam.
 - Maršrutu aizsardzība (Route Guard), pogu “Edit/Delete” slēpšana lietotājiem, kas nav autori.
 - 401/422 kļūdu apstrāde frontendā (validācija, ziņojumi).
+- Interceptors pievieno tokenu visiem pieprasījumiem.
+
+
+## P.S
+
 
 
 
