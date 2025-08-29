@@ -102,7 +102,7 @@ Frontend palaišana:
 - npm start
 - vai ng serve
 
-
+**Lietotne atvērsies http://localhost:4200**
 
 
 
