@@ -81,3 +81,5 @@ php artisan serve
 API būs pieejams: http://127.0.0.1:8000
 API pamatprefikss: /api/v1 (piemērs: GET http://127.0.0.1:8000/api/v1/posts).
 
+
+
