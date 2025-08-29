@@ -71,7 +71,13 @@ DB_PASSWORD=
 **Atkarību/dependencies iestatīšana un shēmas sagatavošana:**
 composer install
 php artisan key:generate
-php artisan migrate --seed     # izveidos tabulas un ievadīs kategorijas
+php artisan migrate --seed              // izveidos tabulas un ievadīs kategorijas
 
+Sideros jau ir iepriekš noteiktas kategorijas. Lietotāju var izveidot, izmantojot reģistrācijas saskarni Frontend.
 
+**API palaišana:**
+php artisan serve
+
+API būs pieejams: http://127.0.0.1:8000
+API pamatprefikss: /api/v1 (piemērs: GET http://127.0.0.1:8000/api/v1/posts).
 
