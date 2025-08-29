@@ -47,7 +47,7 @@ social-platform/
     database: social_platform
    
 ## 3. Backend (Laravel API)
-## Atveriet .env un iestatiet savienojumu ar datu bāzi:
+**Atveriet .env un iestatiet savienojumu ar datu bāzi:**
 
 APP_NAME=Laravel
 APP_ENV=local
@@ -55,7 +55,7 @@ APP_KEY=            # ģenerēsim zemāk
 APP_DEBUG=true
 APP_URL=http://127.0.0.1:8000
 
-## CORS: ir svarīgi, lai fronte varētu piekļūt API ar http://localhost:4200
+**CORS: ir svarīgi, lai fronte varētu piekļūt API ar http://localhost:4200**
 SESSION_DRIVER=cookie
 SANCTUM_STATEFUL_DOMAINS=localhost:4200,127.0.0.1:4200
 
@@ -68,7 +68,10 @@ DB_USERNAME=root
 DB_PASSWORD=
 
 
-## Atkarību/dependencies iestatīšana un shēmas sagatavošana:
+**Atkarību/dependencies iestatīšana un shēmas sagatavošana:**
+composer install
+php artisan key:generate
+php artisan migrate --seed     # izveidos tabulas un ievadīs kategorijas
 
 
 
