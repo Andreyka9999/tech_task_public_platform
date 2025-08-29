@@ -190,7 +190,7 @@ Parasti tiek izvietots kā parasts Laravel API (PHP-FPM + Nginx/Apache). Neaizmi
 
 
 ## P.S
-## Ja Jums rodas jautājumi par projekta uzsākšanu, lūdzu, rakstiet man, es Jums nekavējoties atbildēšu. Lai veiksmīga pārbaude!
+## Ja Jums rodas jautājumi par projekta palaišanu (kļūdas, vai citas problēmas), lūdzu, rakstiet man, es Jums nekavējoties atbildēšu. Lai veiksmīga pārbaude!
 
 
 
