@@ -121,8 +121,25 @@ Vienkāršākais veids — divi termināli:
   - Aizpildiet Title, Content.
   - Atzīmējiet vienu vai vairākas kategorijas (izvēles rūtiņas).
   - Saglabājiet — jūs tiksiet pāradresēts uz ziņojuma lapu.
+- **Posta rediģēšana (/posts/:id/edit)**
+  - Atļauts tikai ziņojuma autoram.
+  - Mainiet virsrakstu/saturu un kategoriju kopumu.
+- **Ieraksta dzēšana**
+   - Poga “Dzēst” ir redzama tikai autoram ziņojuma lapā.
+   - Pēc apstiprināšanas ieraksts tiek dzēsts, un jūs atgriezīsieties uz lenti.
+- **Detalizēta ziņojuma lapa (/posts/:id)**
+   - Pilns saturs, autors, kategorijas, komentāru skaitītājs.
+   - Komentāra pievienošana (tikai autorizētiem lietotājiem).
+   - Komentārus var dzēst tikai to autors.
+- **Profils (/profile/:userId)**
+   - Izvēlētā lietotāja ziņojumu saraksts, sakārtots pēc datuma (jaunākie augšā).
+- **Navigācija / Logout**
+   - Hederā tiek parādīts lietotāja vārds.
+   - Poga "Logout" dzēš tokenu un atgriež uz /login.
 
-
+## 7. Bieži sastopamas problēmas un to risinājumi:
+**The route api/v1//auth/login could not be found.**
+**Environment.apiUrl nedrīkst beigties ar /. Tam jābūt: http://127.0.0.1:8000/api/v1**
 
 
 
