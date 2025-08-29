@@ -116,6 +116,7 @@ Vienkāršākais veids — divi termināli:
 - Pārejiet uz Register un izveidojiet lietotāju. Pēc reģistrācijas tiks saglabāts tokens, un visi aizsargātie ekrāni kļūs pieejami.
 - Feed (/):
 - - Redzams kopējais ziņu plūsmā, komentāru skaitītājs.
+  - Darbojas meklēšana ?search=... un filtrs pēc kategorijām ?category=ID.
 
 
 
