@@ -138,10 +138,10 @@ Vienkāršākais veids — divi termināli:
    - Poga "Logout" dzēš tokenu un atgriež uz /login.
 
 ## 7. Bieži sastopamas problēmas un to risinājumi:
-**The route api/v1//auth/login could not be found.**
-**Environment.apiUrl nedrīkst beigties ar /. Tam jābūt: http://127.0.0.1:8000/api/v1**
+- **The route api/v1//auth/login could not be found.**
+    **Environment.apiUrl nedrīkst beigties ar /. Tam jābūt: http://127.0.0.1:8000/api/v1**
 
-
+- 
 
 
 
