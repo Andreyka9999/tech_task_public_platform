@@ -91,3 +91,25 @@ Ja pārlūkprogrammas konsolē redzat paziņojumu „CORS Failed”, pārliecini
 - APP_URL = http://127.0.0.1:8000
 - Config/cors.php ir atļauts izcelsmes vietas http://localhost:4200 (pēc noklusējuma tas jau ir tā).
 - Pārstartējiet php artisan serve.
+
+
+## 4. Frontend (Angular + Tailwind)
+
+- cd ../social-platform-frontend
+- npm install
+
+Frontend palaišana:
+- npm start
+- vai ng serve
+
+
+
+
+
+
+
+
+
+
+
+
