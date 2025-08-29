@@ -1,0 +1,13 @@
+/*
+ * Purpose: Custom style overrides for the feed page.
+ * Note: most styling is done with Tailwind, 
+ *       but here we add extra CSS where utilities are not enough.
+ */
+
+.line-clamp-3 {
+  /* Limit text to 3 lines and cut the rest (used for post previews) */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

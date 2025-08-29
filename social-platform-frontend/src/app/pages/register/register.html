@@ -1,0 +1,24 @@
+<div class="max-w-md mx-auto p-6 space-y-6">
+   <!-- Page title -->
+  <h1 class="text-2xl font-bold mb-4">Register</h1>
+
+  <!-- Reactive form for creating a new account -->
+  <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
+    <!-- Input fields are connected to FormGroup controls -->
+    <input formControlName="name" placeholder="Name" class="w-full border rounded px-3 py-2" />
+    <input formControlName="email" type="email" placeholder="Email" class="w-full border rounded px-3 py-2" />
+    <input formControlName="password" type="password" placeholder="Password" class="w-full border rounded px-3 py-2" />
+    <input formControlName="password_confirmation" type="password" placeholder="Confirm" class="w-full border rounded px-3 py-2" />
+    
+    <!-- Show backend error message if registration fails -->
+    @if (error) { <div class="text-red-600 text-sm">{{ error }}</div> }
+
+     <!-- Submit button → disabled while loading to avoid double submit -->
+    <button class="bg-blue-600 text-white rounded px-4 py-2" [disabled]="loading">
+      {{ loading ? '...' : 'Create account' }}
+    </button>
+
+    <!-- Link back to login page -->
+    <a routerLink="/login" class="ml-3 underline">Back to login</a>
+  </form>
+</div>

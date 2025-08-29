@@ -1,0 +1,63 @@
+<!--
+  Purpose: Shows main feed with posts, search, and category filter.
+  Note: data comes from component (Angular bindings).
+-->
+
+<section class="space-y-6">
+  <!-- Filter section: search by text and filter by category -->
+  <div class="flex flex-wrap gap-3 items-end ">
+    <div>
+      <label class="block text-sm text-gray-500">Search</label>
+      <!-- two-way binding to "search"; pressing Enter applies filters -->
+      <input [(ngModel)]="search" (keyup.enter)="applyFilters()"
+             class="border rounded px-3 py-2 w-64" placeholder="search...">
+    </div>
+    <div>
+      <label class="block text-sm text-gray-500">Category</label>
+      <!-- dropdown for category filter (many-to-many relation in backend) -->
+      <select [(ngModel)]="categoryId" (change)="applyFilters()"
+              class="border rounded px-3 py-2">
+        <option value="">All</option>
+        <option *ngFor="let c of categories" [value]="c.id">{{ c.name }}</option>
+      </select>
+    </div>
+    <!-- button to apply current filters -->
+    <button (click)="applyFilters()" class="px-4 py-2 rounded bg-blue-600 text-white">
+      Apply
+    </button>
+  </div>
+
+  <!-- Loading state -->
+  <div *ngIf="loading" class="text-gray-500">Loading...</div>
+
+  <!-- Posts list -->
+  <div class="grid gap-4 ">
+    <!-- loop through posts and show each one -->
+    <article *ngFor="let p of posts" class="border rounded-lg p-4 bg-white">
+      <!-- clicking goes to post detail page -->
+      <a [routerLink]="['/posts', p.id]" class="text-lg font-semibold hover:underline">
+        {{ p.title }}
+      </a>
+
+      <!-- show author and date -->
+      <div class="text-sm text-gray-500">
+        by {{ p.author?.name }} • {{ p.created_at | date:'medium' }}
+      </div>
+      
+      <!-- post content preview, clamped to 3 lines -->
+      <p class="mt-2 text-gray-800 break-all sm:break-words whitespace-pre-wrap line-clamp-3">{{ p.content }}
+      </p>
+
+      <!-- categories (tags) -->
+      <div class="mt-3 text-sm text-gray-600">
+        <span *ngFor="let c of p.categories" class="inline-block mr-2">#{{ c.name }}</span>
+      </div>
+
+      <!-- number of comments -->
+      <div class="mt-3 text-sm text-gray-500">
+        {{ p.comments_count }} comments
+      </div>
+
+    </article>
+  </div>
+</section>

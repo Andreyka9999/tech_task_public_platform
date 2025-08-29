@@ -1,0 +1,56 @@
+<!--
+  Purpose: Show a single post with its comments.
+  Notes:
+    - Displays post title, author, content, and categories.
+    - Authenticated users can add comments.
+    - Users can delete only their own comments.
+-->
+
+
+<section *ngIf="post; else loadingTpl" class="space-y-4">
+  <!-- Post main info -->
+  <h1 class="text-2xl font-bold">{{ post.title }}</h1>
+
+  <div class="text-sm text-gray-500">
+    by {{ post.author?.name }} • {{ post.created_at | date:'medium' }}
+  </div>
+
+  <div class="text-gray-900 break-all sm:break-words whitespace-pre-wrap">
+    {{ post.content }}
+  </div>
+
+  <!-- Categories list -->
+  <div class="text-sm text-gray-600">
+    <span *ngFor="let c of post.categories" class="inline-block mr-2">#{{ c.name }}</span>
+  </div>
+
+  <hr>
+
+  <!-- Comments header -->
+  <h2 class="font-semibold">Comments ({{ post.comments_count }})</h2>
+
+  <!-- Add new comment (only if logged in) -->
+  <div *ngIf="isAuth" class="flex gap-2">
+    <input [(ngModel)]="commentText" class="border rounded px-3 py-2 flex-1" placeholder="Add a comment">
+    <button (click)="addComment()" class="px-4 py-2 rounded bg-blue-600 text-white">Send</button>
+  </div>
+  <p *ngIf="error" class="text-red-600">{{ error }}</p>
+
+  <!-- List of comments -->
+  <div class="space-y-3">
+    <div *ngFor="let c of post.comments" class="border rounded p-3 bg-white">
+      <div class="text-sm text-gray-500 flex justify-between">
+        <span>{{ c.author?.name }} • {{ c.created_at | date:'medium' }}</span>
+        <!-- Delete button visible only if user owns this comment -->
+        <button *ngIf="canDelete(c)" (click)="deleteComment(c)"
+                class="text-red-600 hover:underline">Delete</button>
+      </div>
+      <div class="mt-1 break-all sm:break-words whitespace-pre-wrap">{{ c.body }}</div>
+    </div>
+  </div>
+</section>
+
+<!-- Loading state -->
+<ng-template #loadingTpl>
+  <div class="text-gray-500">Loading...</div>
+</ng-template>

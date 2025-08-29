@@ -1,0 +1,13 @@
+<div class="min-h-screen bg-gray-100 flex flex-col">
+   <!-- Header with navigation -->
+  <header class="bg-white border-b shadow-sm">
+    <div class="mx-auto max-w-6xl px-4 py-3">
+      <app-nav></app-nav>
+    </div>
+  </header>
+
+  <!-- Main content area where Angular loads different pages -->
+  <main class="flex-1 mx-auto max-w-6xl px-4 py-6 space-y-8 break-words whitespace-pre-wrap">
+    <router-outlet></router-outlet>
+  </main>
+</div>

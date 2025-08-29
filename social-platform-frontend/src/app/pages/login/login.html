@@ -1,0 +1,46 @@
+<!--
+  Purpose: Login page template.
+  Notes:
+    - Uses Angular Reactive Forms (formGroup + formControlName).
+    - Shows validation errors when fields are touched/invalid.
+    - Redirects to feed after successful login (handled in TS).
+-->
+
+<div class="max-w-lg mx-auto p-6">
+  <h1 class="text-2xl font-bold mb-4">Login</h1>
+
+  <!-- Reactive form bound to "form" in component -->
+  <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
+    <div>
+      <!-- input bound to email control -->
+      <label class="block text-sm mb-1">Email</label>
+      <input formControlName="email" type="email" class="w-full border rounded px-3 py-2 shadow text-lg" />
+      <!-- show error only if user touched field and it's invalid -->
+      @if (form.get('email')?.touched && form.get('email')?.invalid) {
+        <p class="text-sm text-red-600 mt-1">Please enter a valid email address.</p>
+      }
+    </div>
+
+    <div>
+      <label class="block text-sm mb-1">Password</label>
+      <!-- password input with validation -->
+      <input formControlName="password" type="password" class="w-full border rounded px-3 py-2 shadow text-lg" />
+      @if (form.get('password')?.touched && form.get('password')?.invalid) {
+        <p class="text-sm text-red-600 mt-1">Password required</p>
+      }
+    </div>
+
+    <!-- error from backend login (e.g. wrong credentials) -->
+    @if (error) { <div class="text-red-600 text-sm">{{ error }}</div> }
+
+    <!-- button disabled while loading (to prevent double submit) -->
+    <button class="bg-blue-600 text-white rounded px-4 py-2 w-full text-cen" [disabled]="loading">
+      {{ loading ? '...' : 'Login' }}
+    </button>
+
+    <!-- link to registration page -->
+    <p class="text-center mt-3">
+    <a routerLink="/register" class="ml-3 underline">Register</a>
+    </p>
+  </form>
+</div>
