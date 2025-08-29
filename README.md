@@ -169,7 +169,11 @@ Parasti tiek izvietots kā parasts Laravel API (PHP-FPM + Nginx/Apache). Neaizmi
    - php artisan key:generate
    - php artisan migrate --seed
    - php artisan serve
- 
+ - **Frontend:**
+    - cd ../social-platform-frontend
+    - npm install
+    - npm start
+    - Atveriet http://localhost:4200, reģistrējieties kā lietotājs un izietiet visus ekrānus.
 
 
 ## 10. Fināla palaišana:
