@@ -59,7 +59,7 @@ APP_URL=http://127.0.0.1:8000
 SESSION_DRIVER=cookie
 SANCTUM_STATEFUL_DOMAINS=localhost:4200,127.0.0.1:4200
 
-## MySQL (XAMPP pēc noklusējuma)
+** MySQL (XAMPP pēc noklusējuma)
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
