@@ -147,6 +147,42 @@ Vienkāršākais veids — divi termināli:
   - Palaidiet "php artisan migrate --seed". Kategoriju seeder izveidos iepriekš noteiktas vērtības.
 - **401 Unauthorized**
   - Nepieciešams tokens. Piesakieties, izmantojot /login (vai reģistrējieties). Tokens tiks saglabāts pārlūkprogrammas localStorage; interceptors automātiski aizstāj virsrakstu Authorization: Bearer < token >.
+ 
+
+## 8. Fināla palaišana:
+**Backend**
+Parasti tiek izvietots kā parasts Laravel API (PHP-FPM + Nginx/Apache). Neaizmirstiet:
+- Konfigurējiet .env (APP_KEY, DB, APP_URL, CORS).
+- Izpildiet php artisan migrate --seed (vienu reizi).
+
+**Frontend**
+- cd social-platform-frontend
+- ng build
+
+
+## 9. Ātrs palaišanas check-list:
+- **XAMPP → MySQL palaists → izveidot datu bāzi ar nosaukumu "social_platform".**
+- **Backend:**
+   - cd social-platform-backend
+   - composer install
+   -  konfigurēt DB_* .env
+   - php artisan key:generate
+   - php artisan migrate --seed
+   - php artisan serve
+ 
+
+
+## 10. Fināla palaišana:
+- Reģistrācija un autentifikācija (Bearer token).
+- Publikāciju lente ar meklēšanu un filtrēšanu pēc kategorijām.
+- Savu publikāciju izveide/rediģēšana/dzēšana.
+- Daudzi-daudziem modelis ar iepriekš noteiktām kategorijām (sideri).
+- Komentāri pie publikācijām, kurus var dzēst komentāra autors.
+- Lietotāja profils ar viņa ziņām, šķirošana pēc datuma.
+- Tailwind visam lietotāja interfeisam.
+- Maršrutu aizsardzība (Route Guard), pogu “Edit/Delete” slēpšana lietotājiem, kas nav autori.
+- 401/422 kļūdu apstrāde frontendā (validācija, ziņojumi).
+
 
 
 
