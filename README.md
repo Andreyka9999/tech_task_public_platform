@@ -82,5 +82,10 @@ API būs pieejams: http://127.0.0.1:8000
 
 API pamatprefikss: /api/v1 (piemērs: GET http://127.0.0.1:8000/api/v1/posts).
 
+**CORS**
 
+Ja pārlūkprogrammas konsolē redzat paziņojumu „CORS Failed”, pārliecinieties, ka:
 
+- APP_URL = http://127.0.0.1:8000
+- Config/cors.php ir atļauts izcelsmes vietas http://localhost:4200 (pēc noklusējuma tas jau ir tā).
+- Pārstartējiet php artisan serve.
