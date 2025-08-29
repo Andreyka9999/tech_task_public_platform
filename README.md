@@ -75,12 +75,14 @@ php artisan migrate --seed              // izveidos tabulas un ievadīs kategori
 
 Sideros jau ir iepriekš noteiktas kategorijas. Lietotāju var izveidot, izmantojot reģistrācijas saskarni Frontend.
 
+
 **API palaišana:**
 php artisan serve
 
 API būs pieejams: http://127.0.0.1:8000
 
 API pamatprefikss: /api/v1 (piemērs: GET http://127.0.0.1:8000/api/v1/posts).
+
 
 **CORS**
 
