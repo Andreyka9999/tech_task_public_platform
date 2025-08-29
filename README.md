@@ -146,7 +146,7 @@ Vienkāršākais veids — divi termināli:
 - **Bāze ir tukša / nav kategoriju**
   - Palaidiet "php artisan migrate --seed". Kategoriju seeder izveidos iepriekš noteiktas vērtības.
 - **401 Unauthorized**
-  - Nepieciešams tokens. Piesakieties, izmantojot /login (vai reģistrējieties). Tokens tiks saglabāts pārlūkprogrammas localStorage; interceptors automātiski aizstāj virsrakstu Authorization: Bearer <<token>>.
+  - Nepieciešams tokens. Piesakieties, izmantojot /login (vai reģistrējieties). Tokens tiks saglabāts pārlūkprogrammas localStorage; interceptors automātiski aizstāj virsrakstu Authorization: Bearer < token >.
 
 
 
