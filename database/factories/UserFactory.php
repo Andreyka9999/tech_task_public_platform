@@ -7,12 +7,14 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ * Factory for generating fake User data.
+ * Makes it easy to seed DB with demo users or use them in tests.
  */
 class UserFactory extends Factory
 {
-    /**
-     * The current password being used by the factory.
+     /**
+     * Reuse the same hashed password for all fake users,
+     * so tests are faster (don’t hash again every time).
      */
     protected static ?string $password;
 
@@ -33,7 +35,7 @@ class UserFactory extends Factory
     }
 
     /**
-     * Indicate that the model's email address should be unverified.
+     * Helper: if we want to create a user with unverified email.
      */
     public function unverified(): static
     {

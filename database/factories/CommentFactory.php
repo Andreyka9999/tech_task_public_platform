@@ -8,13 +8,21 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Comment>
+ * Factory for generating fake Comment data.
+ * Used in seeding and tests.
  */
+
 class CommentFactory extends Factory
 {
 
     protected $model = Comment::class;
 
+    /**
+     * Default state for a comment:
+     * - user_id: pick a random user, or create one if none exist
+     * - post_id: pick a random post, or create one if none exist
+     * - body: some fake sentence text
+     */
     /**
      * Define the model's default state.
      *

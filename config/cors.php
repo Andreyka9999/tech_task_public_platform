@@ -10,7 +10,7 @@ return [
     */
 
     // Paths to which CORS applies
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    'paths' => ['api/*', 'sanctum/csrf-cookie', 'login', 'logout', 'user'],
 
     // Permitted HTTP methods
     'allowed_methods' => ['*'],
@@ -22,7 +22,7 @@ return [
     ],
 
     // Source patterns (usually not needed)
-    'allowed_origins_patterns' => [],
+    'allowed_origins_patterns' => ['/^http:\/\/127\.0\.0\.1(:\d+)?$/'],
 
     // Permitted headings
     'allowed_headers' => ['*'],

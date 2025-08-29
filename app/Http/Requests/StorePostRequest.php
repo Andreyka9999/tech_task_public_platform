@@ -25,8 +25,19 @@ class StorePostRequest extends FormRequest
             'title' => ['required','string','max:255'],
             'content' => ['required','string'],
             'categories' => ['required','array','min:1'],
-            'categories.*' => ['integer','exists:categories,id'],
-            'body' => ['required', 'string', 'max:5000'],
+            'categories.*' => ['integer','exists:categories,id']
         ];
+    }
+
+    /**
+     * Small trick: sometimes frontend might send field "body"
+     * instead of "content". We normalize it here before validation.
+     */
+    protected function prepareForValidation(): void
+    {
+        if ($this->has('body') && !$this->has('content')) {
+            $this->merge(['content' => $this->input('body')]);
+    }
+
     }
 }

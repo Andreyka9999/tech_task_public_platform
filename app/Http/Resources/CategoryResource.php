@@ -15,9 +15,10 @@ class CategoryResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            // only return the fields that frontend really needs
             'id'   => $this->id,
             'name' => $this->name,
-            'slug' => $this->slug,
-        ];
+            'slug' => $this->slug,      // useful for URLs/filters in frontend
+        ];  
     }
 }

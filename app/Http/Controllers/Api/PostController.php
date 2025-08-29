@@ -11,13 +11,23 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    /*
+     * Controller for blog posts.
+     * Handles: listing, showing one post, creating, updating and deleting.
+     * Notes from task:
+       - Only logged-in users can create posts
+       - Only author can update/delete (checked with PostPolicy)
+       - Posts belong to user, and have many categories + comments
+     */
+
     public function index(Request $request){
     
+        // Base query with relationships preloaded.
         $q = Post::query()
             ->with(['author', 'categories'])
             ->withCount('comments');
 
-        // Search by title and content
+        // Optional text search in title or content
         if ($search = $request->query('search')) {
             $q->where(function ($sub) use ($search) {
 
@@ -42,6 +52,8 @@ class PostController extends Controller
 
     public function show(Post $post){
     
+        // Load relations so frontend has author + categories + comments
+        // Comments are ordered by newest
         $post->load([
             'author',
             'categories',
@@ -53,19 +65,23 @@ class PostController extends Controller
 
     public function store(StorePostRequest $request){
     
+        // StorePostRequest already checks title/content length and category ids
         $data = $request->validated(); // title, content, categories: array<int>
 
+        // Always take user_id from current token (never from client)
         $post = Post::create([
             'user_id' => $request->user()->id,
             'title'   => $data['title'],
             'content' => $data['content'],
         ]);
 
-        // Category binding
+        // Category binding. Sync categories (many-to-many). Only IDs from request.
         $post->categories()->sync($data['categories'] ?? []);
 
+        // Reload relations so response has everything
         $post->load(['author', 'categories'])->loadCount('comments');
 
+        // Return 201 (created) with formatted resource
         return (new PostResource($post))
             ->response()
             ->setStatusCode(201);
@@ -73,10 +89,12 @@ class PostController extends Controller
 
     public function update(UpdatePostRequest $request, Post $post){
     
+        // Policy check: only author can update
         $this->authorize('update', $post);
 
         $data = $request->validated(); // may contain title, content, categories
 
+        // Update only fields that were sent
         if (array_key_exists('title', $data)) {
             $post->title = $data['title'];
         }
@@ -85,10 +103,12 @@ class PostController extends Controller
         }
         $post->save();
 
+        // Sync categories if present
         if (array_key_exists('categories', $data)) {
             $post->categories()->sync($data['categories'] ?? []);
         }
 
+        // Return updated post with relations
         $post->load(['author', 'categories'])->loadCount('comments');
 
         return new PostResource($post);
@@ -96,9 +116,11 @@ class PostController extends Controller
 
     public function destroy(Post $post){
     
+        // Policy check: only author can delete
         $this->authorize('delete', $post);
         $post->delete();
 
+        // 204 = success but no response body
         return response()->noContent();
     }
 }

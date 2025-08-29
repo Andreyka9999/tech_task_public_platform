@@ -29,6 +29,10 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
+    /**
+     * Fields hidden when returning user as JSON.
+     * e.g. we don’t want to expose password or remember_token to frontend.
+     */
     protected $hidden = [
         'password',
         'remember_token',
@@ -40,11 +44,17 @@ class User extends Authenticatable
      * @return array<string, string>
      */
 
+    /*
+     * Relation: one user can have many posts.
+     */
     public function posts()
     {
         return $this->hasMany(Post::class);    
     }
 
+    /*
+     * Relation: one user can also write many comments.
+     */
     public function comments()
     {
         return $this->hasMany(Comment::class);

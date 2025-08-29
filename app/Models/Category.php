@@ -9,8 +9,11 @@ class Category extends Model
 {
     use HasFactory;
 
+    // Categories are seeded and don’t really change,
+    // so we don’t need created_at / updated_at columns.
     public $timestamps = false;
 
+    // Only these fields can be mass-assigned when seeding.
     protected $fillable = ['name','slug'];
 
      public function posts()
