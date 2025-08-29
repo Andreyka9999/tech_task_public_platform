@@ -20,9 +20,8 @@ Pārliecinieties, ka jums ir instalēts šāds:
 
 - **Git** (https://git-scm.com/downloads)
 - **PHP ≥ 8.2** ar `composer` (https://getcomposer.org/)  
-- **MySQL ≥ 8.0** (vai MariaDB ekvivalents)  
+- **MySQL ≥ 8.0** (Ērti izmantojams ar XAMPP (Apache+MySQL).
+Alternatīva: MariaDB / Docker, bet zemāk ir norādītas instrukcijas XAMPP izmantošanai.)  
 - **Node.js ≥ 18** ar `npm` (https://nodejs.org/)  
-- **Angular CLI**:
-```bash
-  npm install -g @angular/cli
+- **Angular CLI**: npm i install -g @angular/cli
 
