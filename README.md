@@ -114,9 +114,13 @@ Vienkāršākais veids — divi termināli:
 ## 6. Kā lietot (prasību pārbaude):
 - Atveriet http://localhost:4200
 - Pārejiet uz Register un izveidojiet lietotāju. Pēc reģistrācijas tiks saglabāts tokens, un visi aizsargātie ekrāni kļūs pieejami.
-- Feed (/):
+- **Feed (/):**
   - Redzams kopējais ziņu plūsmā, komentāru skaitītājs.
   - Darbojas meklēšana ?search=... un filtrs pēc kategorijām ?category=ID.
+- **Posta izveide (/posts/new)**
+  - Aizpildiet Title, Content.
+  - Atzīmējiet vienu vai vairākas kategorijas (izvēles rūtiņas).
+  - Saglabājiet — jūs tiksiet pāradresēts uz ziņojuma lapu.
 
 
 
