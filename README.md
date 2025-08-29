@@ -25,3 +25,50 @@ Alternatīva: MariaDB / Docker, bet zemāk ir norādītas instrukcijas XAMPP izm
 - **Node.js ≥ 18** ar `npm` (https://nodejs.org/)  
 - **Angular CLI**: npm i install -g @angular/cli
 
+## 1. Repozitorija klonēšana
+- git clone <https://github.com/Andreyka9999/tech_task_public_platform.git> social-platform
+- cd social-platform
+
+Projekta struktūra:
+
+social-platform/
+-- social-platform-backend/      # Laravel API
+└─ social-platform-frontend/     # Angular + Tailwind
+
+## 2. Datu bāzes konfigurēšana (XAMPP)
+1. Palaižiet XAMPP → Start Apache un MySQL.
+2. Atveriet http://localhost/phpmyadmin un izveidojiet datu bāzi, piemēram: Database name: social_platform Collation: utf8mb4_unicode_ci
+3. Pieslēgšanās dati pēc noklusējuma (varat atstāt root bez paroles):
+
+    host: 127.0.0.1
+    port: 3306
+    user: root
+    password: (tukša)
+    database: social_platform
+   
+## 3. Backend (Laravel API)
+# Atveriet .env un iestatiet savienojumu ar datu bāzi:
+
+APP_NAME=Laravel
+APP_ENV=local
+APP_KEY=            # ģenerēsim zemāk
+APP_DEBUG=true
+APP_URL=http://127.0.0.1:8000
+
+# CORS: ir svarīgi, lai fronte varētu piekļūt API ar http://localhost:4200
+SESSION_DRIVER=cookie
+SANCTUM_STATEFUL_DOMAINS=localhost:4200,127.0.0.1:4200
+
+# MySQL (XAMPP pēc noklusējuma)
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=social_platform
+DB_USERNAME=root
+DB_PASSWORD=
+
+
+# Atkarību/dependencies iestatīšana un shēmas sagatavošana:
+
+
+
